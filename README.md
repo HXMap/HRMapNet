@@ -25,6 +25,11 @@ For map element queries, we design a query initialization module to endow querie
 The two modules contribute to leveraging map information in online perception.
 Our HRMapNet can be integrated with most online vectorized map perception methods, significantly improving their performance on both the nuScenes and Argoverse 2 datasets.
 
+### Example of online perception from an emplt map
+
+https://github.com/user-attachments/assets/42f7fbf5-9cf9-4032-a4f9-bdc91cfcb5fb
+
+
 ## Models
 ### MapTRv2 as Baseline
 #### nuScenes dataset
