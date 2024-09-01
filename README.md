@@ -6,8 +6,10 @@
 Guangwei Liu<sup>2*</sup>,
 Zihao Liu<sup>3</sup>, 
 [Ningyi Xu](http://www.qingyuan.sjtu.edu.cn/a/xu-ning-yi-1.html)<sup>3</sup>,
-[Yunhui Liu](https://www4.mae.cuhk.edu.hk/peoples/liu-yun-hui/)<sup>1</sup>,
-[Ji Zhao](https://sites.google.com/site/drjizhao/)<sup>2</sup>,
+[Yunhui Liu](https://www4.mae.cuhk.edu.hk/peoples/liu-yun-hui/)<sup>1</sup><sup>:envelope:</sup>,
+[Ji Zhao](https://sites.google.com/site/drjizhao/)<sup>2#</sup>,
+
+<sup>*</sup>Equal contribution. <sup>:envelope:</sup>Corresponding author. <sup>#</sup>Project lead
 
 <sup>1</sup> The Chinese University of Hong Kong, 
 <sup>2</sup> Huixi Technology,
