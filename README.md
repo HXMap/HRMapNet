@@ -15,6 +15,10 @@ Zihao Liu<sup>3</sup>,
 <sup>2</sup> Huixi Technology,
 <sup>3</sup> Shanghai Jiao Tong University
 
+ArXiv Preprint ([arXiv 2409.00620](https://arxiv.org/abs/2409.00620))
+
+Accepted by **ECCV 2024**
+
 </div>
 
 ## Overview
