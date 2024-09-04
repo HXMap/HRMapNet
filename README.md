@@ -53,7 +53,7 @@ https://github.com/user-attachments/assets/42f7fbf5-9cf9-4032-a4f9-bdc91cfcb5fb
 - In practice, a well-constructed global map can be provided for much better results. 
 Here, we provide two pre-built map, using testing data or training data. 
 Note they are tested with the same model without re-training.
-You can download the pre-built maps into the ``maps" folder or build by yourself.
+You can download the pre-built maps into the "maps" folder or build by yourself.
 
 #### Argoverse 2 dataset
 |        Method         | Epoch | AP<sub>div</sub> | AP<sub>ped</sub> | AP<sub>bou</sub> | mAP  | Initial Map |                                Config                                |                                                                    Download                                                                    |
