@@ -6,12 +6,18 @@
 Guangwei Liu<sup>2*</sup>,
 Zihao Liu<sup>3</sup>, 
 [Ningyi Xu](http://www.qingyuan.sjtu.edu.cn/a/xu-ning-yi-1.html)<sup>3</sup>,
-[Yunhui Liu](https://www4.mae.cuhk.edu.hk/peoples/liu-yun-hui/)<sup>1</sup>,
-[Ji Zhao](https://sites.google.com/site/drjizhao/)<sup>2</sup>,
+[Yunhui Liu](https://www4.mae.cuhk.edu.hk/peoples/liu-yun-hui/)<sup>1</sup><sup>:envelope:</sup>,
+[Ji Zhao](https://sites.google.com/site/drjizhao/)<sup>2#</sup>,
+
+<sup>*</sup>Equal contribution. <sup>:envelope:</sup>Corresponding author. <sup>#</sup>Project lead
 
 <sup>1</sup> The Chinese University of Hong Kong, 
 <sup>2</sup> Huixi Technology,
 <sup>3</sup> Shanghai Jiao Tong University
+
+ArXiv Preprint ([arXiv 2409.00620](https://arxiv.org/abs/2409.00620))
+
+Accepted by **ECCV 2024**
 
 </div>
 
@@ -24,6 +30,13 @@ For BEV features, we employ a feature aggregation module to encode features from
 For map element queries, we design a query initialization module to endow queries with priors from the historical map.
 The two modules contribute to leveraging map information in online perception.
 Our HRMapNet can be integrated with most online vectorized map perception methods, significantly improving their performance on both the nuScenes and Argoverse 2 datasets.
+
+### Example of online perception from an emplt map
+<div align="center">
+  
+https://github.com/user-attachments/assets/42f7fbf5-9cf9-4032-a4f9-bdc91cfcb5fb
+
+</div>
 
 ## Models
 ### MapTRv2 as Baseline
@@ -40,7 +53,7 @@ Our HRMapNet can be integrated with most online vectorized map perception method
 - In practice, a well-constructed global map can be provided for much better results. 
 Here, we provide two pre-built map, using testing data or training data. 
 Note they are tested with the same model without re-training.
-You can download the pre-built maps into the ``maps" folder or build by yourself.
+You can download the pre-built maps into the "maps" folder or build by yourself.
 
 #### Argoverse 2 dataset
 |        Method         | Epoch | AP<sub>div</sub> | AP<sub>ped</sub> | AP<sub>bou</sub> | mAP  | Initial Map |                                Config                                |                                                                    Download                                                                    |
