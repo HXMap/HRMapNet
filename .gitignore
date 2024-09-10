@@ -22,7 +22,6 @@ ckpts/
 data/
 ckpts
 data
-models/
 test/
 val/
 work_dirs/
