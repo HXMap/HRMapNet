@@ -87,7 +87,7 @@ def create_av2_infos_mp(root_path,
     root_path = osp.join(root_path, split)
     if dest_path is None:
         dest_path = root_path
-    
+
     loader = AV2SensorDataLoader(Path(root_path), Path(root_path))
     log_ids = list(loader.get_log_ids())
     # import pdb;pdb.set_trace()
@@ -122,7 +122,7 @@ def create_av2_infos_mp(root_path,
             sample_idx += 1
         samples += _samples
         discarded += _discarded
-    
+
     sdb_logger.setLevel(prev_level)
     print(f'{len(samples)} available samples, {discarded} samples discarded')
 
@@ -155,13 +155,13 @@ def get_ped(avm):
         ped_list.append(pc.polygon)
     return ped_list
 
-def get_data_from_logid(log_id, 
-                        loader: AV2SensorDataLoader, 
+def get_data_from_logid(log_id,
+                        loader: AV2SensorDataLoader,
                         data_root,
                         pc_range = [-30.0, -15.0, -5.0, 30.0, 15.0, 3.0]):
     samples = []
     discarded = 0
-    
+
     log_map_dirpath = Path(osp.join(data_root, log_id, "map"))
     vector_data_fnames = sorted(log_map_dirpath.glob("log_map_archive_*.json"))
     if not len(vector_data_fnames) == 1:
@@ -172,7 +172,7 @@ def get_data_from_logid(log_id,
     # We use lidar timestamps to query all sensors.
     # The frequency is 10Hz
     cam_timestamps = loader._sdb.per_log_lidar_timestamps_index[log_id]
-    
+
 
     for ts in cam_timestamps:
         cam_ring_fpath = [loader.get_closest_img_fpath(
@@ -197,16 +197,18 @@ def get_data_from_logid(log_id,
                 e2g_translation = cam_city_SE3_ego.translation,
                 e2g_rotation = cam_city_SE3_ego.rotation,
             )
-        
+
         city_SE3_ego = loader.get_city_SE3_ego(log_id, int(ts))
         e2g_translation = city_SE3_ego.translation
         e2g_rotation = city_SE3_ego.rotation
+        map_location = loader.get_city_name(log_id)
         info = dict(
             e2g_translation=e2g_translation,
             e2g_rotation=e2g_rotation,
             cams=cams, 
             lidar_path=str(lidar_fpath),
             # map_fpath=map_fname,
+            map_location=map_location,
             timestamp=str(ts),
             log_id=log_id,
             token=str(log_id+'_'+str(ts)))
@@ -232,7 +234,7 @@ def extract_local_map(avm, e2g_translation, e2g_rotation, pc_range):
 
     nearby_centerlines = generate_nearby_centerlines(avm, patch_box,patch_angle)
     nearby_dividers = generate_nearby_dividers(avm, patch_box,patch_angle)
-    
+
     map_anno=dict(
         divider=[],
         ped_crossing=[],
@@ -409,13 +411,13 @@ def generate_nearby_dividers(avm, patch_box, patch_angle):
     for key, value in right_lane_dict.items():
         if value['right_neighbor_id'] in left_lane_dict.keys():
             del left_lane_dict[value['right_neighbor_id']]
-    
+
     for key, value in left_lane_dict.items():
         value['centerline'] = value['polyline']
 
     for key, value in right_lane_dict.items():
         value['centerline'] = value['polyline']
-    
+
     left_paths = get_path(left_lane_dict)
     right_paths = get_path(right_lane_dict)
     local_dividers = left_paths + right_paths
@@ -442,7 +444,7 @@ def proc_line(line,ego_SE3_city):
     return line
 
 def extract_local_centerline(nearby_centerlines, ego_SE3_city, patch_box, patch_angle,patch_size):
-      
+
     patch = NuScenesMapExplorer.get_patch_coord(patch_box, patch_angle)
     line_list = []
     for line in nearby_centerlines:
@@ -459,9 +461,9 @@ def extract_local_centerline(nearby_centerlines, ego_SE3_city, patch_box, patch_
             else:
                 new_line = proc_line(new_line, ego_SE3_city)
                 line_list.append(new_line)
-                
+
     centerlines = line_list
-    
+
     poly_centerlines = [line.buffer(1,
                 cap_style=CAP_STYLE.flat, join_style=JOIN_STYLE.mitre) for line in centerlines]
     index_by_id = dict((id(pt), i) for i, pt in enumerate(poly_centerlines))
@@ -569,9 +571,9 @@ def extract_local_divider(nearby_dividers, ego_SE3_city, patch_box, patch_angle,
             else:
                 new_line = proc_line(new_line, ego_SE3_city)
                 line_list.append(new_line)
-                
+
     centerlines = line_list
-    
+
     poly_centerlines = [line.buffer(1,
                 cap_style=CAP_STYLE.flat, join_style=JOIN_STYLE.mitre) for line in centerlines]
     index_by_id = dict((id(pt), i) for i, pt in enumerate(poly_centerlines))
@@ -727,7 +729,7 @@ def extract_local_ped_crossing(avm, ego_SE3_city, patch_box, patch_angle,patch_s
     def get_rec_direction(geom):
         rect = geom.minimum_rotated_rectangle # polygon as rotated rect
         rect_v_p = np.array(rect.exterior.coords)[:3] # vector point
-        rect_v = rect_v_p[1:]-rect_v_p[:-1] # vector 
+        rect_v = rect_v_p[1:]-rect_v_p[:-1] # vector
         v_len = np.linalg.norm(rect_v, axis=-1) # vector length
         longest_v_i = v_len.argmax()
 
