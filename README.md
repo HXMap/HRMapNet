@@ -68,10 +68,12 @@ You can download the pre-built maps into the "maps" folder or build by yourself.
 ### MapQR as Baseline
 Here we also provide results based on our [MapQR](https://github.com/HXMap/MapQR). This is not included in our paper.
 #### nuScenes dataset
-|     Method     | Epoch | AP<sub>div</sub> | AP<sub>ped</sub> | AP<sub>bou</sub> | mAP  |            Initial Map             |                          Config                          |                                                                    Download                                                                     |
-|:--------------:|:-----:|:----------------:|:----------------:|:----------------:|:----:|:----------------------------------:|:--------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
-| MapQR+<br/>HRMapNet |  24   |       70.1       |       70.3       |       71.1       | 70.5 |               Empty                | [config](projects/configs/mapqr/mapqr_nusc_r50_24ep.py)  |  [model](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155168294_link_cuhk_edu_hk/EesowqNmOgBNmzOdMpbjhisBI8Yj9YSqN9VEGItBVHJ3Dg?e=dMZ8Ab)   |
+|        Method        | Epoch | AP<sub>div</sub> | AP<sub>ped</sub> | AP<sub>bou</sub> | mAP  |            Initial Map             |                                Config                                |                                                                    Download                                                                     |
+|:--------------------:|:-----:|:----------------:|:----------------:|:----------------:|:----:|:----------------------------------:|:--------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------:|
+| MapQR+<br/>HRMapNet  |  24   |       70.1       |       70.3       |       71.1       | 70.5 |               Empty                | [config](projects/configs/hrmapnet/hrmapnet_mapqr_nusc_r50_24ep.py)  |  [model](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155168294_link_cuhk_edu_hk/EesowqNmOgBNmzOdMpbjhisBI8Yj9YSqN9VEGItBVHJ3Dg?e=dMZ8Ab)   |
+| MapQR+<br/>HRMapNet* |  24   |       73.1       |       72.2       |       72.5       | 72.6 |               Empty                | [config](projects/configs/hrmapnet/hrmapnet_mapqr_nusc_r50_24ep_new.py) |  [model](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155168294_link_cuhk_edu_hk/EW4J9Ls680BHl1ZFWw7OrnAB9G5ktDeVWTPaCEpC-IlNOw?e=T5mPUl)   |
 
+\*Fix a bug in MapQR.
 
 ## Getting Started
 These settings are similar with [MapTRv2](https://github.com/hustvl/MapTR/tree/maptrv2)
